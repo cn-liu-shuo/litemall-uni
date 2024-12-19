@@ -9,7 +9,7 @@
     {
       "path": "pages/sort/sort",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationStyle": "custom"
       }
     },
     {
