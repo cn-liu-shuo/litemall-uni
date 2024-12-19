@@ -5,6 +5,27 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+		  "path" : "pages/sort/sort",
+		  "style" : 
+		  {
+		    "navigationBarTitleText" : ""
+		  }
+		},
+		{
+		  "path" : "pages/cart/cart",
+		  "style" : 
+		  {
+		    "navigationBarTitleText" : ""
+		  }
+		},
+		{
+		  "path" : "pages/my/my",
+		  "style" : 
+		  {
+		    "navigationBarTitleText" : ""
+		  }
 		}
 	],
 	"globalStyle": {
