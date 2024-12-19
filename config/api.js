@@ -5,7 +5,9 @@ export function homeIndex() {
   return new Promise((resolve,reject) => {
     uni.request({
       url: base_url + '/home/index',
-      method: 'GET'
+      method: 'GET',
+      success: res => resolve(res),
+      fail: res => reject(res)
     })
   })
 }
