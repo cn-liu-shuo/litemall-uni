@@ -15,6 +15,19 @@
         <view style="font-size: 28rpx;">{{item.name}}</view>
       </van-grid-item>
     </van-grid>
+    <!-- 优惠券 -->
+    <view class="coupon">
+      <h2>优惠券</h2>
+      <view class="coupon-item" v-for="item in coupon" :key="item.id">
+        <view class="top">
+          <view class="discount">￥ <text>{{item.discount}}元</text> </view>
+          <view class="name">{{item.name}}</view>
+        </view>
+        <view class="bottom">
+          {{item.desc}} - {{item.tag}}有效期：{{item.days}} 天
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -28,7 +41,9 @@
         // 轮播图
         banner: [],
         // 通道
-        channel: []
+        channel: [],
+        // 优惠券
+        coupon: [],
       }
     },
     onLoad() {
@@ -43,6 +58,7 @@
             console.log(res.data.data)
             this.banner = res.data.data.banner
             this.channel = res.data.data.channel
+            this.coupon = res.data.data.couponList
           }
         })
       }
@@ -62,5 +78,49 @@
   .channel {
     background-color: #fff;
     margin-top: 10rpx;
+  }
+
+  // 优惠券
+  .coupon {
+    background-color: #fff;
+    margin-top: 40rpx;
+
+    h2 {
+      padding: 20rpx 32rpx;
+      font-size: 28rpx;
+      font-weight: 400;
+    }
+
+    .coupon-item {
+      margin: 20rpx 32rpx;
+      border: 2rpx solid #ff0000;
+      padding: 50rpx 30rpx 30rpx;
+      border-radius: 10rpx;
+
+      .top {
+        display: flex;
+
+        .discount {
+          font-size: 28rpx;
+          color: #ff4444;
+          margin-right: 20rpx;
+
+          text {
+            font-size: 48rpx;
+          }
+        }
+
+        .name {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+      }
+
+      .bottom {
+        font-size: 24rpx;
+        color: #969799;
+      }
+    }
   }
 </style>
