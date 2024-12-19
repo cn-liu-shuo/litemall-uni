@@ -38,6 +38,15 @@
         <view>{{item.name}}</view>
       </van-grid-item>
     </van-grid>
+    <!-- 新品首发 -->
+    <van-cell style="margin-top: 40rpx;" :border="false" title="新品首发" is-link value="更多新品首发" />
+    <van-grid :border="false" :column-num="2">
+      <van-grid-item v-for="item in newGoods" :key="item.id">
+        <image style="width: 100%;height: 360rpx;" :src="item.picUrl" mode=""></image>
+        <view style="font-size: 28rpx;color: #7b7474;">{{item.name}}</view>
+        <view style="font-size: 28rpx;color: #ab956d;">￥{{item.retailPrice}}</view>
+      </van-grid-item>
+    </van-grid>
   </view>
 </template>
 
@@ -56,6 +65,8 @@
         coupon: [],
         // 品牌直供商
         brand: [],
+        // 新品首发
+        newGoods: []
       }
     },
     onLoad() {
@@ -72,6 +83,7 @@
             this.channel = res.data.data.channel
             this.coupon = res.data.data.couponList
             this.brand = res.data.data.brandList
+            this.newGoods = res.data.data.newGoodsList
           }
         })
       }
