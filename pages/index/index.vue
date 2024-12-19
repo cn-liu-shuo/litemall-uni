@@ -30,6 +30,14 @@
     </view>
     <!-- 团购专区 -->
     <van-cell style="margin-top: 40rpx;" title="团购专区" is-link value="更多团购商品" />
+    <!-- 品牌直供商 -->
+    <van-cell style="margin-top: 40rpx;" :border="false" title="品牌直供商" is-link value="更多品牌商" />
+    <van-grid :column-num="2">
+      <van-grid-item v-for="item in brand" :key="item.id">
+        <image style="width: 280rpx;height: 160rpx;" :src="item.picUrl" mode=""></image>
+        <view>{{item.name}}</view>
+      </van-grid-item>
+    </van-grid>
   </view>
 </template>
 
@@ -46,6 +54,8 @@
         channel: [],
         // 优惠券
         coupon: [],
+        // 品牌直供商
+        brand: [],
       }
     },
     onLoad() {
@@ -61,6 +71,7 @@
             this.banner = res.data.data.banner
             this.channel = res.data.data.channel
             this.coupon = res.data.data.couponList
+            this.brand = res.data.data.brandList
           }
         })
       }
