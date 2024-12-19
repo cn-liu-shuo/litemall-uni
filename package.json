@@ -1,0 +1,16 @@
+{
+  "name": "litemall-uni",
+  "version": "1.0.0",
+  "description": "uni-app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^9.0.0",
+    "sass-loader": "^16.0.4",
+    "vant": "^2.13.6"
+  }
+}
