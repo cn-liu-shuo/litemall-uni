@@ -47,6 +47,23 @@
         <view style="font-size: 28rpx;color: #ab956d;">￥{{item.retailPrice}}</view>
       </van-grid-item>
     </van-grid>
+    <!-- 人气推荐 -->
+    <van-cell style="margin-top: 40rpx;" :border="false" title="人气推荐" is-link value="更多人气推荐" />
+    <view class="hotGoods" v-for="item in hotGoods" :key="item.id">
+      <view class="left">
+        <image style="width: 176rpx;height: 176rpx;" :src="item.picUrl"></image>
+      </view>
+      <view class="right">
+        <view class="top">
+          <view class="name">{{item.name}}</view>
+          <view class="brief">{{item.brief}}</view>
+        </view>
+        <view class="bottom">
+          <view class="retailPrice">￥<text>{{item.retailPrice}}</text>.00</view>
+          <view class="counterPrice">￥{{item.counterPrice}}</view>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -66,7 +83,9 @@
         // 品牌直供商
         brand: [],
         // 新品首发
-        newGoods: []
+        newGoods: [],
+        // 人气推荐
+        hotGoods: []
       }
     },
     onLoad() {
@@ -84,6 +103,7 @@
             this.coupon = res.data.data.couponList
             this.brand = res.data.data.brandList
             this.newGoods = res.data.data.newGoodsList
+            this.hotGoods = res.data.data.hotGoodsList
           }
         })
       }
@@ -146,6 +166,48 @@
       .bottom {
         font-size: 24rpx;
         color: #969799;
+      }
+    }
+  }
+
+  // 人气推荐
+  .hotGoods {
+    background-color: #fff;
+    display: flex;
+    padding: 24rpx 32rpx;
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .top {
+        font-size: 28rpx;
+
+        .name {
+          color: #323233;
+        }
+
+        .brief {
+          color: #646566;
+        }
+      }
+      .bottom {
+        display: flex;
+        font-size: 24rpx;
+        .retailPrice {
+          text {
+            font-size: 32rpx;
+          }
+        }
+        .counterPrice {
+          color: #969799;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          text-decoration: line-through;
+          margin-left: 8rpx;
+        }
       }
     }
   }
