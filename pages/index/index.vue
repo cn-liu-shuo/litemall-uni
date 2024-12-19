@@ -28,6 +28,8 @@
         </view>
       </view>
     </view>
+    <!-- 团购专区 -->
+    <van-cell style="margin-top: 40rpx;" title="团购专区" is-link value="更多团购商品" />
   </view>
 </template>
 
@@ -84,6 +86,7 @@
   .coupon {
     background-color: #fff;
     margin-top: 40rpx;
+    padding-bottom: 20rpx;
 
     h2 {
       padding: 20rpx 32rpx;
