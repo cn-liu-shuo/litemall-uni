@@ -64,6 +64,15 @@
         </view>
       </view>
     </view>
+    <!-- 专题精选 -->
+    <van-cell style="margin-top: 40rpx;" :border="false" title="专题精选" is-link value="更多专题精选" />
+    <van-grid :column-num="2">
+      <van-grid-item v-for="item in topic" :key="item.id">
+        <image style="width: 90%;" :src="item.picUrl" mode="widthFix"></image>
+        <view style="font-size: 28rpx;color: #ab956d;">{{item.title}}</view>
+        <view style="font-size: 20rpx;color: #ab956d;">{{item.subtitle}}</view>
+      </van-grid-item>
+    </van-grid>
   </view>
 </template>
 
@@ -85,7 +94,9 @@
         // 新品首发
         newGoods: [],
         // 人气推荐
-        hotGoods: []
+        hotGoods: [],
+        // 专题精选
+        topic: []
       }
     },
     onLoad() {
@@ -104,6 +115,7 @@
             this.brand = res.data.data.brandList
             this.newGoods = res.data.data.newGoodsList
             this.hotGoods = res.data.data.hotGoodsList
+            this.topic = res.data.data.topicList
           }
         })
       }
@@ -192,14 +204,17 @@
           color: #646566;
         }
       }
+
       .bottom {
         display: flex;
         font-size: 24rpx;
+
         .retailPrice {
           text {
             font-size: 32rpx;
           }
         }
+
         .counterPrice {
           color: #969799;
           display: flex;
