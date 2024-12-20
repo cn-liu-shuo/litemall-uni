@@ -15,5 +15,10 @@ export function isLogin() {
       title: '未登录',
       icon: 'error'
     })
+    setTimeout(() => {
+      uni.navigateTo({
+        url: '/pages/login/login'
+      })
+    }, 1000)
   }
 }
