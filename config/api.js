@@ -16,3 +16,11 @@ export function catalogIndex() {
 export function catalogCurrent(id) {
   return request(`/catalog/current?id=${id}`)
 }
+
+// 登录
+export function authLogin(username, password) {
+  return request('/auth/login', {
+    username: username,
+    password: password
+  }, "POST")
+}
