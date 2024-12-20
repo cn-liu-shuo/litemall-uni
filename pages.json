@@ -30,6 +30,13 @@
       {
         "navigationStyle": "custom"
       }
+    },
+    {
+      "path" : "pages/register/register",
+      "style" : 
+      {
+        "navigationStyle": "custom"
+      }
     }
   ],
   "globalStyle": {
