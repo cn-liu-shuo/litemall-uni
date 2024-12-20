@@ -10,7 +10,7 @@
       <van-field v-model="username" clearable left-icon="user-o" placeholder="请输入测试账号user123" />
       <van-field v-model="password" clearable left-icon="closed-eye" placeholder="请输入测试密码user123" type="password" />
       <view class="clearfix">
-        <view class="left">免费注册</view>
+        <view class="left" @click="onRegister">免费注册</view>
         <view class="right">忘记密码</view>
       </view>
       <van-button type="danger" size="large" @click="onLogin">登录</van-button>
@@ -41,6 +41,11 @@
               url: '/pages/my/my'
             })
           }
+        })
+      },
+      onRegister() {
+        uni.navigateTo({
+          url: '/pages/register/register'
         })
       }
     }
