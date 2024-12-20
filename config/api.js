@@ -1,13 +1,11 @@
-const base_url = 'http://admin.bsmall.byesame.com/wx'
+import { request } from "./request"
 
 // 获取首页数据
 export function homeIndex() {
-  return new Promise((resolve,reject) => {
-    uni.request({
-      url: base_url + '/home/index',
-      method: 'GET',
-      success: res => resolve(res),
-      fail: res => reject(res)
-    })
-  })
+  return request('/home/index')
+}
+
+// 获取分类页数据
+export function catalogIndex() {
+  return request('/catalog/index')
 }
