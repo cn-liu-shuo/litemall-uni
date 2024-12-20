@@ -13,13 +13,16 @@
         <view class="left">免费注册</view>
         <view class="right">忘记密码</view>
       </view>
-      <van-button type="danger" size="large">登录</van-button>
+      <van-button type="danger" size="large" @click="onLogin">登录</van-button>
     </view>
     <view class="text-desc">技术支持: litemall</view>
   </view>
 </template>
 
 <script>
+  import {
+    authLogin
+  } from '../../config/api';
   export default {
     data() {
       return {
@@ -28,7 +31,18 @@
       }
     },
     methods: {
-
+      onLogin() {
+        authLogin(this.username, this.password).then(res => {
+          if (res.statusCode === 200) {
+            console.log(res.data.data)
+            uni.setStorageSync("token", res.data.data.token)
+            uni.setStorageSync("nickName", res.data.data.userInfo.nickName)
+            uni.switchTab({
+              url: '/pages/my/my'
+            })
+          }
+        })
+      }
     }
   }
 </script>
