@@ -16,7 +16,7 @@
         <van-grid :border="false" :column-num="3">
           <van-grid-item v-for="item in currentSubCategory" :key="item.id">
             <image style="width: 140rpx;height: 140rpx;" :src="item.picUrl"></image>
-            <view>{{item.name}}</view>
+            <view style="font-size: 28rpx;">{{item.name}}</view>
           </van-grid-item>
         </van-grid>
       </view>
@@ -54,9 +54,9 @@
         })
       },
       // 侧边导航
-      onTabs(id){
+      onTabs(id) {
         catalogCurrent(id).then(res => {
-          if(res.statusCode === 200){
+          if (res.statusCode === 200) {
             console.log(res.data.data);
             this.currentCategory = res.data.data.currentCategory
             this.currentSubCategory = res.data.data.currentSubCategory
