@@ -1,4 +1,6 @@
-import { request } from "./request"
+import {
+  request
+} from "./request"
 
 // 获取首页数据
 export function homeIndex() {
@@ -8,4 +10,9 @@ export function homeIndex() {
 // 获取分类页数据
 export function catalogIndex() {
   return request('/catalog/index')
+}
+
+// 分类页导航按钮
+export function catalogCurrent(id) {
+  return request(`/catalog/current?id=${id}`)
 }
